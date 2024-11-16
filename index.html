@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link href="./output.css" rel="stylesheet" />
+    <style>
+      /* Custom Animation for Fade-in */
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+
+      .fade-in {
+        animation: fadeIn 0.6s ease-out;
+      }
+
+      
+      @keyframes slideIn {
+        0% {
+          transform: translateY(-10px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .slide-in {
+        animation: slideIn 0.5s ease-out;
+      }
+    </style>
+  </head>
+  <body class="bg-blue-100 flex justify-center items-center min-h-screen">
+    <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-lg fade-in">
+      <h1 class="text-4xl font-bold text-center mb-4">Weather Forecast</h1>
+
+      <!-- Location Input -->
+      <div class="flex mb-4">
+        <input
+          id="location"
+          type="text"
+          class="w-full p-2 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
+          placeholder="Enter location"
+        />
+        <button
+          id="search-btn"
+          class="bg-blue-500 text-white p-2 rounded-r-lg hover:bg-blue-600 transition-all duration-300"
+        >
+          Search
+        </button>
+      </div>
+
+      <!-- Current Location Button -->
+      <button
+        id="get-location-btn"
+        class="bg-green-500 text-white p-2 rounded-lg mb-4 w-full hover:bg-green-600 transition-all duration-300"
+      >
+        Use My Location
+      </button>
+
+      <!-- Recently Searched Cities Dropdown -->
+      <div class="relative mb-4">
+        <button
+          id="dropdown-btn"
+          class="bg-gray-300 text-black p-2 rounded-lg w-full hover:bg-gray-400 transition-all duration-300"
+        >
+          Recent Searches
+        </button>
+        <ul
+          id="dropdown-menu"
+          class="absolute w-full bg-white rounded-lg shadow-md hidden mt-2 slide-in"
+        >
+          <!-- List of recent searches will be appended here -->
+        </ul>
+      </div>
+
+      <!-- Weather Data -->
+      <div id="weather-container" class="text-center mb-6 fade-in">
+        <p class="text-lg">Enter a location to get the weather forecast.</p>
+      </div>
+
+      <!-- Extended Forecast -->
+      <div
+        id="forecast-container"
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 fade-in"
+      >
+        <!-- 5-day forecast will be displayed here -->
+      </div>
+    </div>
+
+    <script src="./API.js"></script>
+  </body>
+</html>
